@@ -11,6 +11,15 @@ async function getProjects() {
    })
 }
 
+async function insertProject(project) {
+ const newProject = await db('projects').insert(project)
+  return {
+    ...newProject,
+    project_completed: newProject.project_completed? true:false
+  }
+}
+
 module.exports = {
-    getProjects
+    getProjects,
+    insertProject
 }
