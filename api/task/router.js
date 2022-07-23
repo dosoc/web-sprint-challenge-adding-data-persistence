@@ -4,9 +4,9 @@ const Task = require('./model')
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    Task.getTask()
-        .then(projects => {
-            res.status(200).json(projects);
+    Task.getTasks()
+        .then(task => {
+            res.status(200).json(task);
         })
         .catch(next)
 });
