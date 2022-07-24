@@ -17,11 +17,7 @@ async function getTasks() {
 function add(task) {
   return db('tasks').insert(task)
   .then(([task_id])=> {
-    const newTask = db('tasks').where('task_id', task_id).first()
-    return {
-      ...newTask,
-      task_completed: newTask.task_completed? true: false
-    }
+    return db('tasks').where('task_id', task_id).first()
   })
 }
 

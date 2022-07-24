@@ -12,9 +12,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    Project.insertProject(req.body)
+    const project = req.body
+    Project.insertProject(project)
         .then(project => {
-            res.status(201).json(project)
+            res.status(201).json({
+                ...project,
+                project_completed: project.project_completed? true: false
+            })
         })
         .catch(next)
 })
