@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     Project.insertProject(req.body)
         .then(project => {
-            res.status(200).json(project)
+            res.status(201).json(project)
         })
         .catch(next)
 })
