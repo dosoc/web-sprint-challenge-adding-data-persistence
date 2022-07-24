@@ -17,7 +17,7 @@ function insertProject(project) {
     const newProject = db('projects').where('project_id', project_id).first()
     return {
       ...newProject,
-      project_completed: newProject.project_completed? true:false
+      project_completed: newProject.project_completed? true : false
     }
   })
 }
